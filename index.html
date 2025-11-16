@@ -12,18 +12,24 @@
     <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
   </head>
   <body>
-    <header class="header">
-      <a href="#" class="logo">code bee</a>
+   <header class="header">
+  <a href="#" class="logo">code bee</a>
 
-      <nav class="navbar">
-        <a href="#" style="--i: 1" class="active">Home</a>
-        <a href="#" style="--i: 2">About</a>
-        <a href="#" style="--i: 3">Skill</a>
-        <a href="#" style="--i: 4">portifolio</a>
-        <a href="#" style="--i: 5">Contact</a>
-      </nav>
-    </header>
-    <section class="home">
+  <!-- Hamburger Icon -->
+  <i class='bx bx-menu' id="menu-icon"></i>
+
+
+  <nav class="navbar" id="nav-menu">
+    <a href="#home" style="--i: 1" class="active">Home</a>
+    <a href="#about" style="--i: 2">About</a>
+    <a href="#services" style="--i: 3">services</a>
+    <a href="#skills" style="--i: 4">skills</a>
+    <a href="#portifolio" style="--i: 5">portifolio</a>
+    <a href="#contact" style="--i: 6">Contact</a>
+  </nav>
+</header>
+
+    <section class="home" id="home">
       <div class="home-content">
         <h3>Hello, it's me</h3>
         <h1>SAMUEL MUNYAMBU</h1>
@@ -35,11 +41,12 @@
         </p>
 
         <div class="home-sci">
-          <a href="#" style="--i: 7"><i class="bx bxl-facebook"></i></a>
-          <a href="#" style="--i: 8"><i class="bx bxl-instagram"></i></a>
-          <a href="#" style="--i: 9"><i class="bx bxl-linkedin"></i></a>
-          <a href="#" style="--i: 10"><i class="bx bxl-tiktok"></i></a>
-          <a href="#" style="--i: 11"><i class="bx bxl-whatsapp"></i></a>
+          <a href="https://web.facebook.com/profile.php?id=61576745342655" style="--i: 7"><i class="bx bxl-facebook"></i></a>
+          <a href="https://www.instagram.com/wastedicon2/" style="--i: 8"><i class="bx bxl-instagram"></i></a>
+          <a href="https://www.linkedin.com/in/warris-smith/" style="--i: 9"><i class="bx bxl-linkedin"></i></a>
+          <a href="https://www.tiktok.com/@wasted_icon4" style="--i: 10"><i class="bx bxl-tiktok"></i></a>
+          <a href="https://wa.me/254759973018?text=Hello%20Samuel!%20I%20want%20to%20connect%20with%20you.
+          " style="--i: 11"><i class="bx bxl-whatsapp"></i></a>
         </div>
         <a href="#" class="btn-box">More about me</a>
       </div>
@@ -70,7 +77,7 @@
       </div>
     </section>
 
-    <section>
+    <section id="services">
       <div class="services" id="services">
         <div class="container">
           <h1 class="sub-title">My <span>services</span></h1>
@@ -119,105 +126,262 @@
       </div>
     </section>
 
-    <h1 class="sub-title">My <span>Skills</span></h1>
+    <section id="skills">
+      <h1 class="sub-title">My <span>Skills</span></h1>
 
-    <section>
-      <div class="container1" id="skills">
-        <h1 class="heading1">Technical skills</h1>
-        <div class="Technical-bars">
-          <div class="bar">
-            <i class="bx bxl-html5" style="color: #e34f26"></i>
-            <div class="info">
-              <span>HTML</span>
-            </div>
-            <div class="progress-line html">
-              <span></span>
-            </div>
-          </div>
+      <div class="skills-container">
+        <!-- Left Side - Technical Skills -->
+        <div class="container1">
+          <h1 class="heading1">Technical Skills</h1>
 
-          <div class="bar">
-            <i class="bx bxl-css3" style="color: #1572b6"></i>
-            <div class="info">
-              <span>CSS</span>
+          <div class="Technical-bars">
+            <div class="bar" data-percent="90">
+              <i class="bx bxl-html5" style="color: #e34c26"></i>
+              <div class="info"><span>HTML</span></div>
+              <div class="progress-line"><span></span></div>
+              <div class="percentage-num">0%</div>
             </div>
-            <div class="progress-line css">
-              <span></span>
-            </div>
-          </div>
 
-          <div class="bar">
-            <i class="bx bxl-javascript" style="color: #f7df1e"></i>
+            <div class="bar" data-percent="80">
+              <i class="bx bxl-css3" style="color: #264de4"></i>
+              <div class="info"><span>CSS</span></div>
+              <div class="progress-line"><span></span></div>
+              <div class="percentage-num">0%</div>
+            </div>
 
-            <div class="info">
-              <span>JavaScript</span>
+            <div class="bar" data-percent="85">
+              <i class="bx bxl-javascript" style="color: #f0db4f"></i>
+              <div class="info"><span>JavaScript</span></div>
+              <div class="progress-line"><span></span></div>
+              <div class="percentage-num">0%</div>
             </div>
-            <div class="progress-line javaScript">
-              <span></span>
-            </div>
-          </div>
 
-          <div class="bar">
-            <i class="bx bxl-react" style="color: #61dbfb"></i>
+            <div class="bar" data-percent="50">
+              <i class="bx bxl-python" style="color: #3776ab"></i>
+              <div class="info"><span>Python</span></div>
+              <div class="progress-line"><span></span></div>
+              <div class="percentage-num">0%</div>
+            </div>
 
-            <div class="info">
-              <span>React</span>
-            </div>
-            <div class="progress-line react">
-              <span></span>
-            </div>
-          </div>
-
-          <div class="bar">
-            <i class="bx bxl-python" style="color: #3776ab"></i>
-            <div class="info">
-              <span>Python</span>
-            </div>
-            <div class="progress-line python">
-              <span> </span>
+            <div class="bar" data-percent="75">
+              <i class="bx bxl-react" style="color: #61dbfb"></i>
+              <div class="info"><span>React</span></div>
+              <div class="progress-line"><span></span></div>
+              <div class="percentage-num">0%</div>
             </div>
           </div>
         </div>
-      </div>
 
-      <div class="container1">
-        <h1 class="heading1">Proffesional skills</h1>
-        <div class="radial-bars">
-          <svg x="0px" y="0px" viewBox="0 0 200 200">
-            <circle class="progress-bar" cx="100" cy="100" r="80"></circle>
-            <circle class="path-path-1" cx="100" cy="100" r="80"></circle>
-          </svg>
-          <div class="percentage">90%</div>
-          <div class="text">Creativity</div>
-        </div>
+        <!-- Right Side - Professional Skills -->
+        <div class="container2">
+          <h1 class="heading1">Professional Skills</h1>
 
-        <div class="radial-bars">
-          <svg x="0px" y="0px" viewBox="0 0 200 200">
-            <circle class="progress-bar" cx="100" cy="100" r="80"></circle>
-            <circle class="path-path-1" cx="100" cy="100" r="80"></circle>
-          </svg>
-          <div class="percentage">85%</div>
-          <div class="text">Communication</div>
-        </div>
+          <div class="radial-bars">
+            <div class="radial-bar" data-percentage="90">
+              <svg viewBox="0 0 200 200">
+                <circle
+                  class="progress-bar-bg"
+                  cx="100"
+                  cy="100"
+                  r="80"
+                ></circle>
+                <circle class="progress-bar" cx="100" cy="100" r="80"></circle>
+              </svg>
+              <div class="percentage">90%</div>
+              <div class="text">Creativity</div>
+            </div>
 
-        <div class="radial-bars">
-          <svg x="0px" y="0px" viewBox="0 0 200 200">
-            <circle class="progress-bar" cx="100" cy="100" r="80"></circle>
-            <circle class="path-path-1" cx="100" cy="100" r="80"></circle>
-          </svg>
-          <div class="percentage">85%</div>
-          <div class="text">Problem solving</div>
-        </div>
+            <div class="radial-bar" data-percentage="65">
+              <svg viewBox="0 0 200 200">
+                <circle
+                  class="progress-bar-bg"
+                  cx="100"
+                  cy="100"
+                  r="80"
+                ></circle>
+                <circle class="progress-bar" cx="100" cy="100" r="80"></circle>
+              </svg>
+              <div class="percentage">65%</div>
+              <div class="text">Communication</div>
+            </div>
 
-        <div class="radial-bars">
-          <svg x="0px" y="0px" viewBox="0 0 200 200">
-            <circle class="progress-bar" cx="100" cy="100" r="80"></circle>
-            <circle class="path-path-1" cx="100" cy="100" r="80"></circle>
-          </svg>
-          <div class="percentage">80%</div>
-          <div class="text">Team work</div>
+            <div class="radial-bar" data-percentage="75">
+              <svg viewBox="0 0 200 200">
+                <circle
+                  class="progress-bar-bg"
+                  cx="100"
+                  cy="100"
+                  r="80"
+                ></circle>
+                <circle class="progress-bar" cx="100" cy="100" r="80"></circle>
+              </svg>
+              <div class="percentage">75%</div>
+              <div class="text">Problem Solving</div>
+            </div>
+
+            <div class="radial-bar" data-percentage="85">
+              <svg viewBox="0 0 200 200">
+                <circle
+                  class="progress-bar-bg"
+                  cx="100"
+                  cy="100"
+                  r="80"
+                ></circle>
+                <circle class="progress-bar" cx="100" cy="100" r="80"></circle>
+              </svg>
+              <div class="percentage">85%</div>
+              <div class="text">Teamwork</div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
+
+    <section class="projects" id="portifolio">
+      <h2 class="section-title">My Latest Projects</h2>
+
+      <div class="projects-container">
+        <!-- Project 1 -->
+        <div class="project-card">
+          <div class="project-image">
+            <img src="img/photo 2.png" alt="Project 1" />
+          </div>
+
+          <div class="project-content">
+            <h3>Portfolio Website</h3>
+            <p>
+              A modern responsive personal portfolio showcasing my skills and
+              projects.
+            </p>
+
+            <div class="project-actions">
+              <a
+                href="https://yourprojectlink.com"
+                target="_blank"
+                class="icon-link"
+              >
+                <i class="bx bx-link-external"></i>
+              </a>
+              <a href="#" class="project-btn">View Project</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 2 -->
+        <div class="project-card">
+          <div class="project-image">
+            <img src="img/photo 3.png" alt="Project 2" />
+          </div>
+
+          <div class="project-content">
+            <h3>E-Commerce UI</h3>
+            <p>
+              A clean e-commerce frontend design focused on user experience.
+            </p>
+
+            <div class="project-actions">
+              <a
+                href="https://yourprojectlink.com"
+                target="_blank"
+                class="icon-link"
+              >
+                <i class="bx bx-link-external"></i>
+              </a>
+              <a href="#" class="project-btn">View Project</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 3 -->
+        <div class="project-card">
+          <div class="project-image">
+            <img src="img/photo 4.png" alt="Project 3" />
+          </div>
+
+          <div class="project-content">
+            <h3>React Dashboard</h3>
+            <p>An interactive React admin dashboard with widgets and charts.</p>
+
+            <div class="project-actions">
+              <a
+                href="https://yourprojectlink.com"
+                target="_blank"
+                class="icon-link"
+              >
+                <i class="bx bx-link-external"></i>
+              </a>
+              <a href="#" class="project-btn">View Project</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="contact-section">
+      <div class="contact-container">
+        <!-- Left Side: Info -->
+        <div class="contact-left">
+          <h2>Get In Touch</h2>
+          <p>
+            Have a project in mind? Let’s make it happen! I’m open to working with clients and partners who want bold ideas, smart solutions, and real impact. Your next big step starts here—let’s connect.
+          </p>
+          <div class="contact-info">
+            <p><i class="bx bx-envelope"></i> munyambusamuel72@gmail.com</p>
+            <p><i class="bx bx-phone"></i> +254 79 905 9812</p>
+          </div>
+          <div class="home-sci">
+            <a href="https://web.facebook.com/profile.php?id=61576745342655" target="_blank"><i class="bx bxl-facebook"></i></a>
+            <a href="https://www.instagram.com/wastedicon2/" target="_blank"><i class="bx bxl-instagram"></i></a>
+            <a href="https://www.linkedin.com/in/warris-smith/" target="_blank"><i class="bx bxl-linkedin"></i></a>
+            <a href="https://www.tiktok.com/@wasted_icon4" target="_blank"><i class="bx bxl-tiktok"></i></a>
+            <a href="https://wa.me/254759973018?text=Hello%20Samuel!%20I%20want%20to%20connect%20with%20you.
+" target="_blank"><i class="bx bxl-whatsapp"></i></a>
+          </div>
+          <a href="#" class="btn-box">DOWNLOAD CV</a>
+        </div>
+
+        <!-- Right Side: Form -->
+
+        <div class="contact-right">
+         
+            <input
+              type="text"
+              name="from_name"
+              placeholder="Your Name"
+              required
+            />
+            <input
+              type="email"
+              name="from_email"
+              placeholder="Your Email"
+              required
+            />
+            <textarea
+              name="message"
+              placeholder="Your Message"
+              required
+            ></textarea>
+            <button type="submit">Send Message</button>
+          </form>
+          <p id="form-status"></p>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>© 2025 Samuel Munyambu. All rights reserved.</p>
+      </div>
+    </section>
+
+   <script>
+  const menuIcon = document.getElementById("menu-icon");
+  const navMenu = document.getElementById("nav-menu");
+
+  menuIcon.onclick = () => {
+    navMenu.classList.toggle("active");
+    menuIcon.classList.toggle("bx-x"); // change icon to X
+  };
+</script>
+
     <script src="main.js"></script>
   </body>
 </html>
