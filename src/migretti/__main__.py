@@ -12,6 +12,7 @@ from migretti.core import (
     verify_checksums
 )
 from migretti.logging_setup import setup_logging, get_logger
+from migretti.io_utils import atomic_write
 
 logger = get_logger()
 
@@ -58,9 +59,14 @@ envs:
       password: securepassword
       dbname: my_app_prod
 """
-    with open(CONFIG_FILENAME, "w") as f:
-        f.write(default_config)
-    print(f"Created {CONFIG_FILENAME}")
+    try:
+        with atomic_write(CONFIG_FILENAME, exclusive=True) as f:
+            f.write(default_config)
+        print(f"Created {CONFIG_FILENAME}")
+    except FileExistsError:
+        logger.error(f"{CONFIG_FILENAME} already exists.")
+    except Exception as e:
+        logger.error(f"Failed to create config: {e}")
 
     # Create migrations directory
     if not os.path.exists("migrations"):
@@ -92,10 +98,13 @@ def cmd_create(args):
 -- migrate: down
 
 """
-    with open(filepath, "w") as f:
-        f.write(template.format(name=name, id=migration_id))
-        
-    print(f"Created {filepath}")
+    try:
+        with atomic_write(filepath, exclusive=True) as f:
+            f.write(template.format(name=name, id=migration_id))
+        print(f"Created {filepath}")
+    except Exception as e:
+        logger.error(f"Failed to create migration file: {e}")
+        sys.exit(1)
 
 def cmd_apply(args):
     """Apply all pending migrations."""

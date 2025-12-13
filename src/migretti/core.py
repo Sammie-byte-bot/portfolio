@@ -84,8 +84,13 @@ def verify_checksums(env=None):
         
         for mig_id, name, filepath in all_migrations:
             if mig_id in applied_map:
-                with open(filepath, "r") as f:
-                    content = f.read()
+                try:
+                    with open(filepath, "r", encoding="utf-8") as f:
+                        content = f.read()
+                except OSError as e:
+                    issues.append(f"Error reading {filepath}: {e}")
+                    continue
+                    
                 current_checksum = calculate_checksum(content)
                 stored_checksum = applied_map[mig_id]
                 
@@ -125,9 +130,13 @@ def rollback_migrations(steps=1, env=None, dry_run=False):
                 if not filepath:
                     logger.warning(f"Migration file for {mig_id} ({name}) not found. Cannot rollback SQL.")
                     raise RuntimeError(f"File for migration {mig_id} not found.")
-                    
-                with open(filepath, "r") as f:
-                    content = f.read()
+                
+                try:
+                    with open(filepath, "r", encoding="utf-8") as f:
+                        content = f.read()
+                except OSError as e:
+                     logger.error(f"Error reading {filepath}: {e}")
+                     raise
                 
                 _, down_sql, no_transaction = parse_migration_sql(content)
                 checksum = calculate_checksum(content)
@@ -211,9 +220,13 @@ def apply_migrations(limit=None, env=None, dry_run=False):
             logger.info(f"Found {len(pending)} pending migrations (applying {len(pending)}).")
             
             for mig_id, name, filepath in pending:
-                with open(filepath, "r") as f:
-                    content = f.read()
-                
+                try:
+                    with open(filepath, "r", encoding="utf-8") as f:
+                        content = f.read()
+                except OSError as e:
+                     logger.error(f"Error reading {filepath}: {e}")
+                     raise
+
                 up_sql, _, no_transaction = parse_migration_sql(content)
                 checksum = calculate_checksum(content)
 

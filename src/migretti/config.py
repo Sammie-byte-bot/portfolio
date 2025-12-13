@@ -25,11 +25,11 @@ def load_config(env: Optional[str] = None) -> Dict[str, Any]:
     # Load from file
     file_config = {}
     if os.path.exists(CONFIG_FILENAME):
-        with open(CONFIG_FILENAME, "r") as f:
-            try:
+        try:
+            with open(CONFIG_FILENAME, "r", encoding="utf-8") as f:
                 file_config = yaml.safe_load(f) or {}
-            except yaml.YAMLError as e:
-                raise RuntimeError(f"Error parsing {CONFIG_FILENAME}: {e}")
+        except (yaml.YAMLError, OSError) as e:
+            raise RuntimeError(f"Error parsing {CONFIG_FILENAME}: {e}")
 
     # Resolve environment profile
     # If env is not passed, check MG_ENV, default to 'default' or root
